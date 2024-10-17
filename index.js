@@ -8,13 +8,15 @@ const users = require('./models/github-integration.model');
 const cors = require('cors');
 const router = require('./routers');
 const app = express();
-
+const { json, urlencoded } = require('body-parser')
 app.use(session({ secret: 'a980098c017fe065a9eef539f19643c37cf0e501', resave: false, saveUninitialized: false }));
 app.use(cors({
     origin: '*',
     optionsSuccessStatus: 200,
     credentials: true
 }));
+app.use(json())
+app.use(urlencoded())
 app.use(passport.initialize());
 app.use(passport.session());
 app.use("/", router);

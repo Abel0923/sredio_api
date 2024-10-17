@@ -10,7 +10,7 @@ router.get('/auth/user', authController.userAuth);
 router.delete('/auth/user', authController.deleteAuthUser);
 router.get('/user/org', orgController.getOrganizations);
 router.get('/user/org/repo', orgController.getAllOrgRepo);
-router.get('/user/org/repo/stats', orgController.getRepoStats);
+router.post('/user/org/repo/stats', orgController.getRepoStats);
 
 
 
